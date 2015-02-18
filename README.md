@@ -1,2 +1,2 @@
-michi-sample-app
-================
+Michi application
+=================
