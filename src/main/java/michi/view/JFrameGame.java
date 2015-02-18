@@ -6,16 +6,17 @@
 package michi.view;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
+import michi.controller.GameController;
+import michi.controller.etc.Sign;
 
 /**
  *
  * @author cesar.diaz
  */
-public class JFrameGame extends javax.swing.JFrame implements ActionListener {
+public class JFrameGame extends javax.swing.JFrame {
+
+    private final GameController controller = new GameController();
 
     private int counter = 0, v = 0;
     private String matrix[][], s;
@@ -32,15 +33,6 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
                 matrix[i][j] = new String(i + "" + j);
             }
         }
-        button00.addActionListener(this);
-        button01.addActionListener(this);
-        button02.addActionListener(this);
-        button10.addActionListener(this);
-        button11.addActionListener(this);
-        button12.addActionListener(this);
-        button20.addActionListener(this);
-        button21.addActionListener(this);
-        button22.addActionListener(this);
     }
 
     /**
@@ -52,6 +44,7 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup = new javax.swing.ButtonGroup();
         panel = new javax.swing.JPanel();
         button00 = new javax.swing.JButton();
         button01 = new javax.swing.JButton();
@@ -62,11 +55,17 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
         button20 = new javax.swing.JButton();
         button21 = new javax.swing.JButton();
         button22 = new javax.swing.JButton();
+        labelStatus = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuGame = new javax.swing.JMenu();
         menuItemNew = new javax.swing.JMenuItem();
+        menuPlayer = new javax.swing.JMenu();
+        radioButtonMenuItemX = new javax.swing.JRadioButtonMenuItem();
+        radioButtonMenuItemO = new javax.swing.JRadioButtonMenuItem();
+        separator = new javax.swing.JPopupMenu.Separator();
+        menuItemExit = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
-        jMenuIAbout = new javax.swing.JMenuItem();
+        menuItemAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("michi/view/Bundle"); // NOI18N
@@ -76,30 +75,75 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
         panel.setLayout(new java.awt.GridLayout(3, 3));
 
         button00.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button00.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button00);
 
         button01.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button01);
 
         button02.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button02.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button02);
 
         button10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button10);
 
         button11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button11);
 
         button12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button12);
 
         button20.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button20);
 
         button21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button21);
 
         button22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        button22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonActionPerformed(evt);
+            }
+        });
         panel.add(button22);
 
         menuGame.setText(bundle.getString("dict.game")); // NOI18N
@@ -112,12 +156,29 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
         });
         menuGame.add(menuItemNew);
 
+        menuPlayer.setText(bundle.getString("dict.player")); // NOI18N
+
+        buttonGroup.add(radioButtonMenuItemX);
+        radioButtonMenuItemX.setSelected(true);
+        radioButtonMenuItemX.setText(bundle.getString("dict.x")); // NOI18N
+        menuPlayer.add(radioButtonMenuItemX);
+
+        buttonGroup.add(radioButtonMenuItemO);
+        radioButtonMenuItemO.setText(bundle.getString("dict.o")); // NOI18N
+        menuPlayer.add(radioButtonMenuItemO);
+
+        menuGame.add(menuPlayer);
+        menuGame.add(separator);
+
+        menuItemExit.setText(bundle.getString("dict.exit")); // NOI18N
+        menuGame.add(menuItemExit);
+
         menuBar.add(menuGame);
 
         menuHelp.setText(bundle.getString("dict.help")); // NOI18N
 
-        jMenuIAbout.setText(bundle.getString("dict.about")); // NOI18N
-        menuHelp.add(jMenuIAbout);
+        menuItemAbout.setText(bundle.getString("dict.about")); // NOI18N
+        menuHelp.add(menuItemAbout);
 
         menuBar.add(menuHelp);
 
@@ -129,14 +190,18 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(labelStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -145,10 +210,64 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewActionPerformed
+        controller.init();
+
         matrix = new String[3][3];
         v = counter = 0;
         modificarPanel(1);
     }//GEN-LAST:event_menuItemNewActionPerformed
+
+    private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
+        JButton btn = (JButton) evt.getSource();
+        Sign sign;
+        if (counter % 2 == 0) {
+            sign = Sign.X;
+        } else {
+            sign = Sign.O;
+        }
+        btn.setText(sign.name());
+        btn.setEnabled(false);
+        counter++;
+        if (evt.getSource().equals(button00)) {
+            controller.markBox(0, 0, sign);
+        }
+        if (evt.getSource().equals(button01)) {
+            controller.markBox(0, 1, sign);
+        }
+        if (evt.getSource().equals(button02)) {
+            controller.markBox(0, 2, sign);
+        }
+        if (evt.getSource().equals(button10)) {
+            controller.markBox(1, 0, sign);
+        }
+        if (evt.getSource().equals(button11)) {
+            controller.markBox(1, 1, sign);
+        }
+        if (evt.getSource().equals(button12)) {
+            controller.markBox(1, 2, sign);
+        }
+        if (evt.getSource().equals(button20)) {
+            controller.markBox(2, 0, sign);
+        }
+        if (evt.getSource().equals(button21)) {
+            controller.markBox(2, 1, sign);
+        }
+        if (evt.getSource().equals(button22)) {
+            controller.markBox(2, 2, sign);
+        }
+
+        System.out.println("====================================");
+        controller.validate(sign);
+        // TODO texto de status
+        String text = labelStatus.getText();
+        labelStatus.setText("===> " + controller.getMoves());
+//        if (ganador() && v == 1) {
+//            JOptionPane.showMessageDialog(this, "Ganador: " + s, getTitle(), JOptionPane.INFORMATION_MESSAGE);
+//            modificarPanel(0);
+//        } else if (counter == 9) {
+//            JOptionPane.showMessageDialog(this, "No hay Ganador", getTitle(), JOptionPane.WARNING_MESSAGE);
+//        }
+    }//GEN-LAST:event_buttonActionPerformed
 
     private boolean ganador() {
         boolean b = false;
@@ -197,53 +316,6 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton btn = (JButton) e.getSource();
-        String str = "";
-        if (counter % 2 == 0) {
-            str = "X";
-        } else {
-            str = "O";
-        }
-        btn.setText(str);
-        btn.setEnabled(false);
-        counter++;
-        if (e.getSource().equals(button00)) {
-            matrix[0][0] = str;
-        }
-        if (e.getSource().equals(button01)) {
-            matrix[0][1] = str;
-        }
-        if (e.getSource().equals(button02)) {
-            matrix[0][2] = str;
-        }
-        if (e.getSource().equals(button10)) {
-            matrix[1][0] = str;
-        }
-        if (e.getSource().equals(button11)) {
-            matrix[1][1] = str;
-        }
-        if (e.getSource().equals(button12)) {
-            matrix[1][2] = str;
-        }
-        if (e.getSource().equals(button20)) {
-            matrix[2][0] = str;
-        }
-        if (e.getSource().equals(button21)) {
-            matrix[2][1] = str;
-        }
-        if (e.getSource().equals(button22)) {
-            matrix[2][2] = str;
-        }
-        if (ganador() && v == 1) {
-            JOptionPane.showMessageDialog(this, "Ganador: " + s, getTitle(), JOptionPane.INFORMATION_MESSAGE);
-            modificarPanel(0);
-        } else if (counter == 9) {
-            JOptionPane.showMessageDialog(this, "No hay Ganador", getTitle(), JOptionPane.WARNING_MESSAGE);
-        }
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button00;
     private javax.swing.JButton button01;
@@ -254,11 +326,18 @@ public class JFrameGame extends javax.swing.JFrame implements ActionListener {
     private javax.swing.JButton button20;
     private javax.swing.JButton button21;
     private javax.swing.JButton button22;
-    private javax.swing.JMenuItem jMenuIAbout;
+    private javax.swing.ButtonGroup buttonGroup;
+    private javax.swing.JLabel labelStatus;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuGame;
     private javax.swing.JMenu menuHelp;
+    private javax.swing.JMenuItem menuItemAbout;
+    private javax.swing.JMenuItem menuItemExit;
     private javax.swing.JMenuItem menuItemNew;
+    private javax.swing.JMenu menuPlayer;
     private javax.swing.JPanel panel;
+    private javax.swing.JRadioButtonMenuItem radioButtonMenuItemO;
+    private javax.swing.JRadioButtonMenuItem radioButtonMenuItemX;
+    private javax.swing.JPopupMenu.Separator separator;
     // End of variables declaration//GEN-END:variables
 }
