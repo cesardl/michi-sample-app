@@ -6,9 +6,25 @@
 package michi.view;
 
 import java.awt.Component;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JRadioButtonMenuItem;
+import javax.swing.LayoutStyle;
+import javax.swing.WindowConstants;
 import michi.controller.GameController;
-import michi.controller.etc.Sign;
 
 /**
  *
@@ -16,23 +32,13 @@ import michi.controller.etc.Sign;
  */
 public class JFrameGame extends javax.swing.JFrame {
 
-    private final GameController controller = new GameController();
-
-    private int counter = 0, v = 0;
-    private String matrix[][], s;
+    private final GameController controller = GameController.getInstance();
 
     /**
      * Creates new form JFrameMain
      */
     public JFrameGame() {
         initComponents();
-
-        matrix = new String[3][3];
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = new String(i + "" + j);
-            }
-        }
     }
 
     /**
@@ -44,113 +50,115 @@ public class JFrameGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup = new javax.swing.ButtonGroup();
-        panel = new javax.swing.JPanel();
-        button00 = new javax.swing.JButton();
-        button01 = new javax.swing.JButton();
-        button02 = new javax.swing.JButton();
-        button10 = new javax.swing.JButton();
-        button11 = new javax.swing.JButton();
-        button12 = new javax.swing.JButton();
-        button20 = new javax.swing.JButton();
-        button21 = new javax.swing.JButton();
-        button22 = new javax.swing.JButton();
-        labelStatus = new javax.swing.JLabel();
-        menuBar = new javax.swing.JMenuBar();
-        menuGame = new javax.swing.JMenu();
-        menuItemNew = new javax.swing.JMenuItem();
-        menuPlayer = new javax.swing.JMenu();
-        radioButtonMenuItemX = new javax.swing.JRadioButtonMenuItem();
-        radioButtonMenuItemO = new javax.swing.JRadioButtonMenuItem();
-        separator = new javax.swing.JPopupMenu.Separator();
-        menuItemExit = new javax.swing.JMenuItem();
-        menuHelp = new javax.swing.JMenu();
-        menuItemAbout = new javax.swing.JMenuItem();
+        buttonGroup = new ButtonGroup();
+        panel = new JPanel();
+        button00 = new JButton();
+        button01 = new JButton();
+        button02 = new JButton();
+        button10 = new JButton();
+        button11 = new JButton();
+        button12 = new JButton();
+        button20 = new JButton();
+        button21 = new JButton();
+        button22 = new JButton();
+        labelStatus = new JLabel();
+        menuBar = new JMenuBar();
+        menuGame = new JMenu();
+        menuItemNew = new JMenuItem();
+        menuPlayer = new JMenu();
+        radioButtonMenuItemX = new JRadioButtonMenuItem();
+        radioButtonMenuItemO = new JRadioButtonMenuItem();
+        separator = new JPopupMenu.Separator();
+        menuItemExit = new JMenuItem();
+        menuHelp = new JMenu();
+        menuItemAbout = new JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("michi/view/Bundle"); // NOI18N
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        bundle = ResourceBundle.getBundle("michi/view/Bundle"); // NOI18N
         setTitle(bundle.getString("app.title")); // NOI18N
 
-        panel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        panel.setLayout(new java.awt.GridLayout(3, 3));
+        panel.setBorder(BorderFactory.createEtchedBorder());
+        panel.setLayout(new GridLayout(3, 3));
 
-        button00.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button00.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button00.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button00.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button00);
 
-        button01.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button01.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button01.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button01.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button01);
 
-        button02.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button02.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button02.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button02.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button02);
 
-        button10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button10.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button10);
 
-        button11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button11.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button11);
 
-        button12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button12.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button12);
 
-        button20.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button20.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button20.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button20);
 
-        button21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button21.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button21.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button21);
 
-        button22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        button22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        button22.setFont(new Font("Dialog", 1, 18)); // NOI18N
+        button22.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 buttonActionPerformed(evt);
             }
         });
         panel.add(button22);
 
+        labelStatus.setText(bundle.getString("dict.welcome")); // NOI18N
+
         menuGame.setText(bundle.getString("dict.game")); // NOI18N
 
         menuItemNew.setText(bundle.getString("dict.new")); // NOI18N
-        menuItemNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        menuItemNew.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
                 menuItemNewActionPerformed(evt);
             }
         });
@@ -184,24 +192,22 @@ public class JFrameGame extends javax.swing.JFrame {
 
         setJMenuBar(menuBar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addComponent(labelStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(panel, GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(labelStatus, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panel, GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelStatus, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -209,58 +215,50 @@ public class JFrameGame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuItemNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewActionPerformed
-        controller.init();
+    private void menuItemNewActionPerformed(ActionEvent evt) {//GEN-FIRST:event_menuItemNewActionPerformed
+        controller.restart();
 
-        matrix = new String[3][3];
-        v = counter = 0;
-        modificarPanel(1);
+        labelStatus.setText(bundle.getString("dict.welcome"));
     }//GEN-LAST:event_menuItemNewActionPerformed
 
-    private void buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
+    private void buttonActionPerformed(ActionEvent evt) {//GEN-FIRST:event_buttonActionPerformed
         JButton btn = (JButton) evt.getSource();
-        Sign sign;
-        if (counter % 2 == 0) {
-            sign = Sign.X;
-        } else {
-            sign = Sign.O;
-        }
-        btn.setText(sign.name());
+        btn.setText(controller.getCurrentPlayer().name());
         btn.setEnabled(false);
-        counter++;
+
         if (evt.getSource().equals(button00)) {
-            controller.markBox(0, 0, sign);
+            controller.markBox(0, 0);
         }
         if (evt.getSource().equals(button01)) {
-            controller.markBox(0, 1, sign);
+            controller.markBox(0, 1);
         }
         if (evt.getSource().equals(button02)) {
-            controller.markBox(0, 2, sign);
+            controller.markBox(0, 2);
         }
         if (evt.getSource().equals(button10)) {
-            controller.markBox(1, 0, sign);
+            controller.markBox(1, 0);
         }
         if (evt.getSource().equals(button11)) {
-            controller.markBox(1, 1, sign);
+            controller.markBox(1, 1);
         }
         if (evt.getSource().equals(button12)) {
-            controller.markBox(1, 2, sign);
+            controller.markBox(1, 2);
         }
         if (evt.getSource().equals(button20)) {
-            controller.markBox(2, 0, sign);
+            controller.markBox(2, 0);
         }
         if (evt.getSource().equals(button21)) {
-            controller.markBox(2, 1, sign);
+            controller.markBox(2, 1);
         }
         if (evt.getSource().equals(button22)) {
-            controller.markBox(2, 2, sign);
+            controller.markBox(2, 2);
         }
 
-        System.out.println("====================================");
-        controller.validate(sign);
         // TODO texto de status
-        String text = labelStatus.getText();
-        labelStatus.setText("===> " + controller.getMoves());
+        StringBuilder builder = new StringBuilder(bundle.getString("app.turn"));
+        builder.append(controller.getCurrentPlayer());
+
+        labelStatus.setText(new String(builder));
 //        if (ganador() && v == 1) {
 //            JOptionPane.showMessageDialog(this, "Ganador: " + s, getTitle(), JOptionPane.INFORMATION_MESSAGE);
 //            modificarPanel(0);
@@ -269,75 +267,29 @@ public class JFrameGame extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_buttonActionPerformed
 
-    private boolean ganador() {
-        boolean b = false;
-        if (counter >= 3) {
-            for (int i = 0; i < matrix.length && !b; i++) {
-                if (matrix[i][0].equals(matrix[i][1]) && matrix[i][1].equals(matrix[i][2])) {
-                    b = true;
-                    v = 1;
-                    s = matrix[i][0];
-                }
-                if (matrix[0][i].equals(matrix[1][i]) && matrix[1][i].equals(matrix[2][i])) {
-                    b = true;
-                    v = 1;
-                    s = matrix[0][i];
-                }
-                if (i == 0) {
-                    if (matrix[i][i].equals(matrix[i + 1][i + 1]) && matrix[i + 1][i + 1].equals(matrix[i + 2][i + 2])) {
-                        b = true;
-                        v = 1;
-                        s = matrix[i][i];
-                    }
-                } else if (i == 2) {
-                    if (matrix[0][i].equals(matrix[i - 1][i - 1]) && matrix[i - 1][i - 1].equals(matrix[i][0])) {
-                        b = true;
-                        v = 1;
-                        s = matrix[i][i];
-                    }
-                }
-            }
-        }
-        return b;
-    }
-
-    private void modificarPanel(int tipo) {
-        Component[] cs = panel.getComponents();
-        for (int i = 0; i < cs.length; i++) {
-            switch (tipo) {
-                case 0:
-                    cs[i].setEnabled(false);
-                    break;
-                case 1:
-                    cs[i].setEnabled(true);
-                    ((javax.swing.JButton) cs[i]).setText("");
-                    break;
-            }
-        }
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button00;
-    private javax.swing.JButton button01;
-    private javax.swing.JButton button02;
-    private javax.swing.JButton button10;
-    private javax.swing.JButton button11;
-    private javax.swing.JButton button12;
-    private javax.swing.JButton button20;
-    private javax.swing.JButton button21;
-    private javax.swing.JButton button22;
-    private javax.swing.ButtonGroup buttonGroup;
-    private javax.swing.JLabel labelStatus;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuGame;
-    private javax.swing.JMenu menuHelp;
-    private javax.swing.JMenuItem menuItemAbout;
-    private javax.swing.JMenuItem menuItemExit;
-    private javax.swing.JMenuItem menuItemNew;
-    private javax.swing.JMenu menuPlayer;
-    private javax.swing.JPanel panel;
-    private javax.swing.JRadioButtonMenuItem radioButtonMenuItemO;
-    private javax.swing.JRadioButtonMenuItem radioButtonMenuItemX;
-    private javax.swing.JPopupMenu.Separator separator;
+    private JButton button00;
+    private JButton button01;
+    private JButton button02;
+    private JButton button10;
+    private JButton button11;
+    private JButton button12;
+    private JButton button20;
+    private JButton button21;
+    private JButton button22;
+    private ButtonGroup buttonGroup;
+    private JLabel labelStatus;
+    private JMenuBar menuBar;
+    private JMenu menuGame;
+    private JMenu menuHelp;
+    private JMenuItem menuItemAbout;
+    private JMenuItem menuItemExit;
+    private JMenuItem menuItemNew;
+    private JMenu menuPlayer;
+    private JPanel panel;
+    private JRadioButtonMenuItem radioButtonMenuItemO;
+    private JRadioButtonMenuItem radioButtonMenuItemX;
+    private JPopupMenu.Separator separator;
+    private ResourceBundle bundle;
     // End of variables declaration//GEN-END:variables
 }

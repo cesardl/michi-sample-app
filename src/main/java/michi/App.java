@@ -1,5 +1,6 @@
 package michi;
 
+import michi.controller.GameController;
 import michi.view.JFrameGame;
 
 /**
@@ -12,13 +13,21 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        GameController controller = GameController.getInstance();
 
-            @Override
-            public void run() {
-                new JFrameGame().setVisible(true);
-            }
-        });
+        boolean status = controller.loadSettings();
+
+        if (status) {
+            javax.swing.SwingUtilities.invokeLater(new Runnable() {
+
+                @Override
+                public void run() {
+                    new JFrameGame().setVisible(true);
+                }
+            });
+        } else {
+            System.err.println("Error when loading application");
+        }
     }
 
 }
