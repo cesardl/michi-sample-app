@@ -2,7 +2,7 @@ package michi.model.etc;
 
 /**
  *
- * @author cesardiaz
+ * @author cesar.diaz
  */
 public enum Status {
 

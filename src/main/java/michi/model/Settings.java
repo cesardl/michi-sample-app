@@ -4,7 +4,7 @@ import michi.model.etc.Sign;
 
 /**
  *
- * @author cesardiaz
+ * @author cesar.diaz
  */
 public class Settings {
 
