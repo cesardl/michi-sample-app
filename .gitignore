@@ -2,3 +2,7 @@
 
 # NetBeans
 nbactions.xml
+
+# IntelliJ IDEA
+*.iml
+.idea/
